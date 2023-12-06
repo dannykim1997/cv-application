@@ -36,6 +36,15 @@ function CVPreview({cvData}) {
                 </div> 
                 ))}
             </div>
+
+            <div>
+                <h3>Skills</h3>
+                {cvData.skills.map((skill, index) => (
+                    <div key={index}>
+                        <p>Skill: {skill.title}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

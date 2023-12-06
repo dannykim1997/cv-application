@@ -37,7 +37,7 @@ function EducationForm({setCVData}) {
             <input
                 type="text"
                 name="degree"
-                value={education.title}
+                value={education.degree}
                 onChange={handleEducationChange}
             />
 
@@ -45,7 +45,7 @@ function EducationForm({setCVData}) {
             <input
                 type="text"
                 name="school"
-                value={education.company}
+                value={education.school}
                 onChange={handleEducationChange}
             />
 
