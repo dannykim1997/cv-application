@@ -7,8 +7,8 @@ import '../styles/App.css'
 function App() {
   const [cvData, setCVData] = useState({
     personalInfo: {},
-    education: [],
     experience: [],
+    education: [],
     skills: []
   });
   
