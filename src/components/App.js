@@ -1,10 +1,15 @@
 import React from 'react';
+import GeneralInfoForm from './GeneralInfoForm';
+import ExperienceForm from './ExperienceForm';
 import '../styles/App.css'
+import EducationForm from './EducationForm';
 
 function App() {
   return (
     <div>
-      Hello
+      <GeneralInfoForm />
+      <ExperienceForm />
+      <EducationForm />
     </div>
   )
 }
