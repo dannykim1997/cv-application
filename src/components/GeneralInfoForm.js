@@ -1,10 +1,54 @@
 import React from "react";
 
-function GeneralInfoForm() {
+function GeneralInfoForm({data, setData}) {
+    console.log(data);
+    console.log(setData);
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setData((prevData) => ({
+            ...prevData,
+            info: {
+                ...prevData.info,
+                [name]: value,
+            },
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(`Form Submitted: Data ${data.info.name}`);
+    };
+
     return (
-        <div>
-            General Info Form Here
-        </div>
+        <form onSubmit={handleSubmit}>
+            <label>Name:
+                <input
+                    type="text"
+                    name="name"
+                    value={data.info.name || ''}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>Email:
+                <input
+                    type="text"
+                    name="email"
+                    value={data.info.email || ''}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>Number:
+                <input
+                    type="text"
+                    name="number"
+                    value={data.info.number || ''}
+                    onChange={handleChange}
+                />
+            </label>
+            <button type="submit">Submit</button>
+        </form>
     );
 }
 
