@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-function GeneralInfoForm({data, setData}) {
-    console.log(data);
-    console.log(setData);
-
+function GeneralInfoForm({data, setData, setSubmitted}) {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -18,7 +15,7 @@ function GeneralInfoForm({data, setData}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(`Form Submitted: Data ${data.info.name}`);
+        setSubmitted(true);
     };
 
     return (

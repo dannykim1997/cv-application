@@ -18,12 +18,14 @@ function App() {
     }
   );
 
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <div>
-      <GeneralInfoForm data={data} setData={setData}/>
-      <ExperienceForm />
-      <EducationForm />
-      <CVPreview data={data}/>
+      <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted}/>
+      <ExperienceForm data={data} setData={setData}/>
+      <EducationForm data={data} setData={setData}/>
+      <CVPreview data={data} submitted={submitted}/>
     </div>
   );
 }

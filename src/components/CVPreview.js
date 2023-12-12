@@ -1,12 +1,16 @@
 import React from "react";
 
-function CVPreview(data) {
+function CVPreview({data, submitted}) {
+    console.log(data.info);
     return (
         <div>
             <h2>Preview</h2>
-            <p>Name: {data.info.name}</p>
-            <p>Email: {data.info.email}</p>
-            <p>Number: {data.info.number}</p>
+            <div>
+                <h3>Personal Info</h3>
+                <p>{submitted ? 'Name: ' + data.info.name : 'Name: '}</p>
+                <p>{submitted ? 'Email: ' + data.info.email : 'Email: '}</p>
+                <p>{submitted ? 'Number: ' + data.info.number : 'Number: '}</p>
+            </div>
         </div>
     );
 }
