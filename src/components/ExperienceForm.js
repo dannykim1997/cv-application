@@ -10,20 +10,25 @@ function ExperienceForm({ data, setData }) {
   });
 
   const handleExperienceChange = (e) => {
-    const { name, value } = e.target;
-    setExp((prevExperience) => ({
-      ...prevExperience,
-      [name]: value,
-    }));
+    const name = e.target.name;
+    const value = e.target.value;
+    const newExp = {...exp, [name]: value};
+    setExp(newExp);
+    // setExp((prevExperience) => ({
+    //   ...prevExperience,
+    //   [name]: value,
+    // }));
   };
 
   const handleAddExperience = (e) => {
     e.preventDefault();
 
-    setData((prevData) => ({
-      ...prevData,
-      experience: [...prevData.experience, exp],
-    }));
+    const newData = {...data, experience: [...data.experience, exp]};
+    setData(newData);
+    // setData((prevData) => ({
+    //   ...prevData,
+    //   experience: [...prevData.experience, exp],
+    // }));
 
     setExp({
       title: '',

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
 function GeneralInfoForm({data, setData, setSubmitted}) {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setData((prevData) => ({
-            ...prevData,
-            info: {
-                ...prevData.info,
-                [name]: value,
-            },
-        }));
+        const newData = {...data, info: {...data.info, [name]: value,}};
+        setData(newData);
+        // setData((prevData) => ({
+        //     ...prevData,
+        //     info: {
+        //         ...prevData.info,
+        //         [name]: value,
+        //     },
+        // }));
     };
 
     const handleSubmit = (e) => {
