@@ -1,6 +1,6 @@
 import React from "react";
 
-function GeneralInfoForm({data, setData, setSubmitted}) {
+function GeneralInfoForm({data, setData, setSubmitted, isDisabled, setIsDisabled}) {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -11,6 +11,7 @@ function GeneralInfoForm({data, setData, setSubmitted}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitted(true);
+        setIsDisabled(true);
     };
 
     return (
@@ -21,6 +22,7 @@ function GeneralInfoForm({data, setData, setSubmitted}) {
                     name="name"
                     value={data.info.name || ''}
                     onChange={handleChange}
+                    disabled={isDisabled}
                 />
             </label>
             <label>Email:
@@ -29,6 +31,7 @@ function GeneralInfoForm({data, setData, setSubmitted}) {
                     name="email"
                     value={data.info.email || ''}
                     onChange={handleChange}
+                    disabled={isDisabled}
                 />
             </label>
             <label>Number:
@@ -37,9 +40,10 @@ function GeneralInfoForm({data, setData, setSubmitted}) {
                     name="number"
                     value={data.info.number || ''}
                     onChange={handleChange}
+                    disabled={isDisabled}
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isDisabled}>Submit</button>
         </form>
     );
 }
