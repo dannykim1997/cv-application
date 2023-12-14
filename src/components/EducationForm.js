@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function EducationForm({data, setData}) {
+function EducationForm({data, setData, setEditing, selectedEducation}) {
     const [edu, setEdu] = useState({
+        id: null,
         degree: '',
         school: '',
         startDate: '',
         endDate: '',
     });
+
+    const [nextId, setNextId] = useState(1);
+
+    useEffect(() => {
+        if (selectedEducation) {
+            setEdu(selectedEducation);
+        } else {
+            setEdu({
+                id: nextId,
+                degree: '',
+                school: '',
+                startDate: '',
+                endDate: '',
+              });
+        }}, [selectedEducation, nextId]);
 
     const handleEducationChange = (e) => {
         const name = e.target.name;
@@ -20,13 +36,38 @@ function EducationForm({data, setData}) {
         
         const newData = {...data, education: [...data.education, edu]};
         setData(newData);
-
+        setNextId((prevId) => prevId + 1);
         setEdu({
+            id: nextId,
             degree: '',
             school: '',
             startDate: '',
             endDate: '',
         });
+    };
+
+    const handleEditEducation = () => {
+        const existingEducationIndex = data.education.findIndex(
+            (edu) => edu.id === selectedEducation.id
+        );
+
+        if (existingEducationIndex !== -1) {
+            const updatedEducationArray = [...data.education];
+            updatedEducationArray[existingEducationIndex] = edu;
+
+            const newData = {...data, education: updatedEducationArray};
+            setData(newData);
+            setEdu({
+                id: nextId,
+                degree: '',
+                school: '',
+                startDate: '',
+                endDate: '',
+              });
+              setEditing(null);
+        } else {
+            console.error("selected experience not found");
+        }
     };
 
     return (
@@ -63,7 +104,8 @@ function EducationForm({data, setData}) {
                 value={edu.endDate}
                 onChange={handleEducationChange}
             />
-            <button onClick={handleAddEducation}>Add Education</button>
+            <button onClick={selectedEducation ? handleEditEducation : handleAddEducation}>{selectedEducation ? "Save Education" : "Add Education"}
+            </button>
         </div>
     );
 }

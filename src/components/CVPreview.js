@@ -4,12 +4,17 @@ function CVPreview({data, submitted, setSubmitted, setEditing, setIsDisabled}) {
     const handleEditInfo = () => {
         setSubmitted(false)
         setIsDisabled(false);
-    }
+    };
 
     const handleEditExperience = (index) => {
         const selectedExperience = data.experience[index];
         setEditing({experience: [selectedExperience]});
-    }
+    };
+
+    const handleEditEducation = (index) => {
+        const selectedEducation = data.education[index];
+        setEditing({education: [selectedEducation]});
+    };
 
     return (
         <div>
@@ -20,10 +25,6 @@ function CVPreview({data, submitted, setSubmitted, setEditing, setIsDisabled}) {
                 <p>{submitted ? 'Email: ' + data.info.email : 'Email: '}</p>
                 <p>{submitted ? 'Number: ' + data.info.number : 'Number: '}</p>
                 <button onClick={handleEditInfo}>Edit</button>
-                {/* {submitted && data.info.name && <p>Name: {data.info.name}</p>}
-                {submitted && data.info.email && <p>Email: {data.info.email}</p>}
-                {submitted && data.info.number && <p>Number: {data.info.number}</p>}
-                {submitted && <button onClick={handleEditInfo}>Edit</button>} */}
             </div>
             <div>
                 <h3>Experience</h3>
@@ -46,6 +47,7 @@ function CVPreview({data, submitted, setSubmitted, setEditing, setIsDisabled}) {
                         <p>School: {edu.school}</p>
                         {edu.startDate && <p>Start Date: {edu.startDate}</p>}
                         {edu.endDate && <p>End Date: {edu.endDate}</p>}
+                        <button onClick={() => handleEditEducation(index)}>Edit</button>
                     </div>
                 ))}
             </div>

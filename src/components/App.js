@@ -26,7 +26,7 @@ function App() {
     <div>
       <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
       <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
-      <EducationForm data={data} setData={setData}/>
+      <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
       <CVPreview data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled}/>
     </div>
   );
