@@ -6,13 +6,6 @@ function GeneralInfoForm({data, setData, setSubmitted}) {
         const value = e.target.value;
         const newData = {...data, info: {...data.info, [name]: value,}};
         setData(newData);
-        // setData((prevData) => ({
-        //     ...prevData,
-        //     info: {
-        //         ...prevData.info,
-        //         [name]: value,
-        //     },
-        // }));
     };
 
     const handleSubmit = (e) => {

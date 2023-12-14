@@ -1,7 +1,13 @@
 import React from "react";
 
-function CVPreview({data, submitted}) {
-    console.log(data);
+function CVPreview({data, submitted, editing, setEditing}) {
+    const handleEditExperience = (index) => {
+        // const newEdit = {...editing, experience: [data.experience[index]]};
+        // setEditing(newEdit);
+        const selectedExperience = data.experience[index];
+        setEditing({experience: [selectedExperience]});
+    }
+    console.log(data.experience);
     return (
         <div>
             <h2>Preview</h2>
@@ -20,6 +26,7 @@ function CVPreview({data, submitted}) {
                         {exp.startDate && <p>Start Date: {exp.startDate}</p>}
                         {exp.endDate && <p>End Date: {exp.endDate}</p>}
                         {exp.description && <p>Description: {exp.description}</p>}
+                        <button onClick={() => handleEditExperience(index)}>Edit</button>
                     </div>
                 ))}
             </div>

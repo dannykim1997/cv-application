@@ -13,10 +13,6 @@ function EducationForm({data, setData}) {
         const value = e.target.value;
         const newEdu = {...edu, [name]: value};
         setEdu(newEdu);
-        // setEdu((prevEdu) => ({
-        //     ...prevEdu,
-        //     [name]: value
-        // }));
     };
 
     const handleAddEducation = (e) => {
@@ -24,10 +20,6 @@ function EducationForm({data, setData}) {
         
         const newData = {...data, education: [...data.education, edu]};
         setData(newData);
-        // setData((prevData) => ({
-        //     ...prevData,
-        //     education: [...prevData.education, edu],
-        // }));
 
         setEdu({
             degree: '',

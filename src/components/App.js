@@ -19,13 +19,14 @@ function App() {
   );
 
   const [submitted, setSubmitted] = useState(false);
+  const [editing, setEditing] = useState(null);
 
   return (
     <div>
       <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted}/>
-      <ExperienceForm data={data} setData={setData}/>
+      <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]}/>
       <EducationForm data={data} setData={setData}/>
-      <CVPreview data={data} submitted={submitted}/>
+      <CVPreview data={data} submitted={submitted} editing={editing} setEditing={setEditing}/>
     </div>
   );
 }
