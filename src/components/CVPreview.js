@@ -1,13 +1,15 @@
 import React from "react";
 
-function CVPreview({data, submitted, editing, setEditing}) {
+function CVPreview({data, submitted, setEditing, editing}) {
     const handleEditExperience = (index) => {
-        // const newEdit = {...editing, experience: [data.experience[index]]};
-        // setEditing(newEdit);
         const selectedExperience = data.experience[index];
         setEditing({experience: [selectedExperience]});
     }
-    console.log(data.experience);
+    if(editing) {
+        console.log(editing);
+    console.log(editing.experience);
+    console.log(editing.experience[0]);
+    }
     return (
         <div>
             <h2>Preview</h2>

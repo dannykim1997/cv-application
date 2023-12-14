@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function ExperienceForm({ data, setData, selectedExperience}) {
+function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
     const [exp, setExp] = useState({
         id: null,
         title: '',
@@ -18,12 +18,12 @@ function ExperienceForm({ data, setData, selectedExperience}) {
     } else {
         setExp({
             id: nextId,
-            title: '',
-            company: '',
-            startDate: '',
-            endDate: '',
-            description: '',
-        });
+            title: "",
+            company: "",
+            startDate: "",
+            endDate: "",
+            description: "",
+          });
     }}, [selectedExperience, nextId]);
 
     const handleExperienceChange = (e) => {
@@ -40,7 +40,14 @@ function ExperienceForm({ data, setData, selectedExperience}) {
         const newData = {...data, experience: [...data.experience, newExperience]};
         setData(newData);
         setNextId((prevId) => prevId + 1);
-        resetForm();
+        setExp({
+            id: nextId,
+            title: "",
+            company: "",
+            startDate: "",
+            endDate: "",
+            description: "",
+          });
     };
 
     const handleEditExperience = () => {
@@ -54,22 +61,19 @@ function ExperienceForm({ data, setData, selectedExperience}) {
 
             const newData = {...data, experience: updatedExperienceArray};
             setData(newData);
-            resetForm();
+            setExp({
+                id: nextId,
+                title: "",
+                company: "",
+                startDate: "",
+                endDate: "",
+                description: "",
+              });
+              setEditing(null);
         } else {
             console.error("selected experience not found");
         }
     };
-
-    const resetForm = () => {
-        setExp({
-            id: nextId,
-            title: "",
-            company: "",
-            startDate: "",
-            endDate: "",
-            description: "",
-          });
-    }
 
     return (
         <div>
@@ -120,29 +124,3 @@ function ExperienceForm({ data, setData, selectedExperience}) {
 }
 
 export default ExperienceForm;
-
-
-// if (selectedExperience) {
-    //     const updatedExperienceArray = data.experience.map((exp) =>
-    //       exp.id === selectedExperience.id ? exp : exp
-    //     );
-    //     const newData = { ...data, experience: updatedExperienceArray };
-    //     setData(newData);
-    // } else {
-    //     const newExperience = { ...exp, id: nextId }; // Use the current nextId
-    //     const newData = { ...data, experience: [...data.experience, newExperience] };
-    //     setData(newData);
-    //     setNextId((prevId) => prevId + 1);
-    // }
-
-    // const newData = {...data, experience: [...data.experience, exp]};
-    // setData(newData);
-
-    // setExp({
-    //   id: nextId,
-    //   title: '',
-    //   company: '',
-    //   startDate: '',
-    //   endDate: '',
-    //   description: '',
-    // });

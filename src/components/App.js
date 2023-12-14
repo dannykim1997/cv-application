@@ -24,9 +24,9 @@ function App() {
   return (
     <div>
       <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted}/>
-      <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]}/>
+      <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
       <EducationForm data={data} setData={setData}/>
-      <CVPreview data={data} submitted={submitted} editing={editing} setEditing={setEditing}/>
+      <CVPreview data={data} submitted={submitted} setEditing={setEditing}/>
     </div>
   );
 }
