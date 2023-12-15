@@ -46,7 +46,9 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
         });
     };
 
-    const handleEditEducation = () => {
+    const handleEditEducation = (e) => {
+        e.preventDefault();
+
         const existingEducationIndex = data.education.findIndex(
             (edu) => edu.id === selectedEducation.id
         );
@@ -71,7 +73,7 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
     };
 
     return (
-        <div>
+        <form onSubmit={selectedEducation ? handleEditEducation : handleAddEducation}>
             <h3>Education</h3>
             <label>Degree:</label>
             <input
@@ -91,7 +93,7 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
 
             <label>Start Date:</label>
             <input
-                type="date"
+                type="text"
                 name="startDate"
                 value={edu.startDate}
                 onChange={handleEducationChange}
@@ -99,14 +101,14 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
 
             <label>End Date:</label>
             <input
-                type="date"
+                type="text"
                 name="endDate"
                 value={edu.endDate}
                 onChange={handleEducationChange}
             />
-            <button onClick={selectedEducation ? handleEditEducation : handleAddEducation}>{selectedEducation ? "Save Education" : "Add Education"}
+            <button type="submit">{selectedEducation ? "Save Education" : "Add Education"}
             </button>
-        </div>
+        </form>
     );
 }
 

@@ -24,23 +24,19 @@ function App() {
   const [editing, setEditing] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
 
-  const handleShowPreview = () => {
-    setShowPreview(true);
+  const handlePreviewToggle = () => {
+    setShowPreview(!showPreview);
   };
 
   return (
     <div>
-      {/* <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
-      <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
-      <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
-      <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled}/> */}
-      {showPreview ? (<CVPreview data={data} setShowPreview={setShowPreview}/>)
+      {showPreview ? (<CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>)
       : (
         <>
           <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
           <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
           <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
-          <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled} handleShowPreview={handleShowPreview}/>
+          <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled} handlePreviewToggle={handlePreviewToggle}/>
         </>
       )}
     </div>

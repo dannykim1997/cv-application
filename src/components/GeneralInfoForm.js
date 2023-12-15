@@ -16,6 +16,7 @@ function GeneralInfoForm({data, setData, setSubmitted, isDisabled, setIsDisabled
 
     return (
         <form onSubmit={handleSubmit}>
+            <h3>Personal Info</h3>
             <label>Name:
                 <input
                     type="text"
