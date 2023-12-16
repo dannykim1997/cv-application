@@ -77,6 +77,18 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
         }
     };
 
+    const handleCancel = () => {
+        setExp({
+          id: nextId,
+          title: '',
+          company: '',
+          startDate: '',
+          endDate: '',
+          description: '',
+        });
+        setEditing(null);
+      };
+
     return (
         <form onSubmit={selectedExperience ? handleEditExperience : handleAddExperience}>
             <h3>Experience</h3>
@@ -119,57 +131,22 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
             onChange={handleExperienceChange}
             ></textarea>
 
-            <button type="submit">
+            
+            <div>
+                <button type="submit">
+                {selectedExperience ? 'Save Experience' : 'Add Experience'}
+                </button>
+                {selectedExperience && (
+                <button type="button" onClick={handleCancel}>
+                    Cancel
+                </button>
+                )}
+            </div>
+            {/* <button type="submit">
             {selectedExperience ? "Save Experience" : "Add Experience"}
-            </button>
+            </button> */}
         </form>
     );
 }
 
 export default ExperienceForm;
-  
-
-// <div>
-        //     <h3>Experience</h3>
-        //     <label>Title:</label>
-        //     <input
-        //     type="text"
-        //     name="title"
-        //     value={exp.title}
-        //     onChange={handleExperienceChange}
-        //     />
-
-        //     <label>Company:</label>
-        //     <input
-        //     type="text"
-        //     name="company"
-        //     value={exp.company}
-        //     onChange={handleExperienceChange}
-        //     />
-
-        //     <label>Start Date:</label>
-        //     <input
-        //     type="text"
-        //     name="startDate"
-        //     value={exp.startDate}
-        //     onChange={handleExperienceChange}
-        //     />
-
-        //     <label>End Date:</label>
-        //     <input
-        //     type="text"
-        //     name="endDate"
-        //     value={exp.endDate}
-        //     onChange={handleExperienceChange}
-        //     />
-
-        //     <label>Description:</label>
-        //     <textarea
-        //     name="description"
-        //     value={exp.description}
-        //     onChange={handleExperienceChange}
-        //     ></textarea>
-
-        //     <button onClick={selectedExperience ? handleEditExperience : handleAddExperience}>{selectedExperience ? "Save Experience" : "Add Experience"}
-        //     </button>
-        // </div>

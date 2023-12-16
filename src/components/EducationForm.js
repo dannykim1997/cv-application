@@ -72,6 +72,17 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
         }
     };
 
+    const handleCancel = () => {
+        setEdu({
+            id: nextId,
+            degree: '',
+            school: '',
+            startDate: '',
+            endDate: '',
+        });
+        setEditing(null);
+      };
+
     return (
         <form onSubmit={selectedEducation ? handleEditEducation : handleAddEducation}>
             <h3>Education</h3>
@@ -106,8 +117,16 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
                 value={edu.endDate}
                 onChange={handleEducationChange}
             />
-            <button type="submit">{selectedEducation ? "Save Education" : "Add Education"}
-            </button>
+
+            <div>
+                <button type="submit">{selectedEducation ? "Save Education" : "Add Education"}
+                </button>
+                {selectedEducation && (
+                <button type="button" onClick={handleCancel}>
+                    Cancel
+                </button>
+                )}
+            </div>
         </form>
     );
 }
