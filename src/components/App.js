@@ -28,6 +28,18 @@ function App() {
     setShowPreview(!showPreview);
   };
 
+  const handleExperienceDelete = (index) => {
+    const updatedExperienceArray = [...data.experience];
+    updatedExperienceArray.splice(index, 1);
+    setData({...data, experience: updatedExperienceArray});
+  }
+
+  const handleEducationDelete = (index) => {
+    const updatedEducationArray = [...data.education];
+    updatedEducationArray.splice(index, 1);
+    setData({...data, education: updatedEducationArray});
+  }
+
   return (
     <div>
       {showPreview ? (<CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>)
@@ -36,7 +48,7 @@ function App() {
           <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
           <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
           <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
-          <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled} handlePreviewToggle={handlePreviewToggle}/>
+          <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled} handlePreviewToggle={handlePreviewToggle} handleExperienceDelete={handleExperienceDelete} handleEducationDelete={handleEducationDelete}/>
         </>
       )}
     </div>

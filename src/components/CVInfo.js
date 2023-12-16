@@ -1,6 +1,6 @@
 import React from "react";
 
-function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handlePreviewToggle}) {
+function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handlePreviewToggle, handleExperienceDelete, handleEducationDelete}) {
     const handleEditInfo = () => {
         setSubmitted(false)
         setIsDisabled(false);
@@ -15,6 +15,14 @@ function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handl
         const selectedEducation = data.education[index];
         setEditing({education: [selectedEducation]});
     };
+
+    const handleDeleteExperience = (index) => {
+        handleExperienceDelete(index)
+    }
+
+    const handleDeleteEducation = (index) => {
+        handleEducationDelete(index)
+    }
 
     return (
         <div>
@@ -36,6 +44,7 @@ function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handl
                         {exp.endDate && <p>End Date: {exp.endDate}</p>}
                         {exp.description && <p>Description: {exp.description}</p>}
                         <button onClick={() => handleEditExperience(index)}>Edit</button>
+                        <button onClick={() => handleDeleteExperience(index)}>Delete</button>
                     </div>
                 ))}
             </div>
@@ -48,6 +57,7 @@ function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handl
                         {edu.startDate && <p>Start Date: {edu.startDate}</p>}
                         {edu.endDate && <p>End Date: {edu.endDate}</p>}
                         <button onClick={() => handleEditEducation(index)}>Edit</button>
+                        <button onClick={() => handleDeleteEducation(index)}>Delete</button>
                     </div>
                 ))}
             </div>
