@@ -142,9 +142,6 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
                 </button>
                 )}
             </div>
-            {/* <button type="submit">
-            {selectedExperience ? "Save Experience" : "Add Experience"}
-            </button> */}
         </form>
     );
 }
