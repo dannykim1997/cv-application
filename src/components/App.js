@@ -3,8 +3,9 @@ import GeneralInfoForm from './GeneralInfoForm';
 import ExperienceForm from './ExperienceForm';
 import EducationForm from './EducationForm';
 import CVInfo from './CVInfo';
-import '../styles/App.css'
 import CVPreview from './CVPreview';
+import Header from './Header';
+import '../styles/App.css'
 
 function App() {
   const [data, setData] = useState(
@@ -42,9 +43,14 @@ function App() {
 
   return (
     <div>
-      {showPreview ? (<CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>)
+      {showPreview ? (
+      <>
+        <Header />
+        <CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>
+      </>)
       : (
         <>
+          <Header />
           <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
           <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
           <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
