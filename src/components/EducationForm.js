@@ -93,6 +93,7 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
                 name="degree"
                 value={edu.degree}
                 onChange={handleEducationChange}
+                required
             />
 
             <label>School:</label>
@@ -101,6 +102,7 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
                 name="school"
                 value={edu.school}
                 onChange={handleEducationChange}
+                required
             />
 
             <label>Start Date:</label>

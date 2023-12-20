@@ -99,6 +99,7 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
             name="title"
             value={exp.title}
             onChange={handleExperienceChange}
+            required
             />
 
             <label>Company:</label>
@@ -107,6 +108,7 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
             name="company"
             value={exp.company}
             onChange={handleExperienceChange}
+            required
             />
 
             <label>Start Date:</label>

@@ -62,7 +62,7 @@ function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handl
                     </div>
                 ))}
             </div>
-            <button onClick={handlePreviewToggle}>Show Preview</button>
+            <button onClick={handlePreviewToggle} className='preview-button'>Show Preview</button>
         </div>
     );
 }

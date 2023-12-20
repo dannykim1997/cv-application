@@ -25,14 +25,17 @@ function GeneralInfoForm({data, setData, setSubmitted, isDisabled, setIsDisabled
                     value={data.info.name || ''}
                     onChange={handleChange}
                     disabled={isDisabled}
+                    placeholder='Full Name'
+                    required
                 />
             </label>
             <label>Email:
                 <input
-                    type="text"
+                    type="email"
                     name="email"
                     value={data.info.email || ''}
                     onChange={handleChange}
+                    placeholder='username@email.com'
                     disabled={isDisabled}
                 />
             </label>
@@ -43,6 +46,7 @@ function GeneralInfoForm({data, setData, setSubmitted, isDisabled, setIsDisabled
                     value={data.info.number || ''}
                     onChange={handleChange}
                     disabled={isDisabled}
+                    placeholder='(xxx)xxx-xxxx'
                 />
             </label>
             <button type="submit" disabled={isDisabled}>Submit</button>
