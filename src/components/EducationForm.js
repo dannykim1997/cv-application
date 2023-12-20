@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import '../styles/App.css';
 
 function EducationForm({data, setData, setEditing, selectedEducation}) {
     const [edu, setEdu] = useState({
@@ -68,7 +69,7 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
               });
               setEditing(null);
         } else {
-            console.error("selected experience not found");
+            console.error('selected experience not found');
         }
     };
 
@@ -84,7 +85,7 @@ function EducationForm({data, setData, setEditing, selectedEducation}) {
       };
 
     return (
-        <form onSubmit={selectedEducation ? handleEditEducation : handleAddEducation}>
+        <form onSubmit={selectedEducation ? handleEditEducation : handleAddEducation} className='form'>
             <h3>Education</h3>
             <label>Degree:</label>
             <input

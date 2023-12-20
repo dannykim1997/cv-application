@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import '../styles/App.css';
 
 function GeneralInfoForm({data, setData, setSubmitted, isDisabled, setIsDisabled}) {
     const handleChange = (e) => {
@@ -15,7 +16,7 @@ function GeneralInfoForm({data, setData, setSubmitted, isDisabled, setIsDisabled
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form'>
             <h3>Personal Info</h3>
             <label>Name:
                 <input

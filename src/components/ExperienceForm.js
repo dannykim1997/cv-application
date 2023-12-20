@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import '../styles/App.css';
 
 function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
     const [exp, setExp] = useState({
@@ -73,7 +74,7 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
               });
               setEditing(null);
         } else {
-            console.error("selected experience not found");
+            console.error('selected experience not found');
         }
     };
 
@@ -90,7 +91,7 @@ function ExperienceForm({ data, setData, setEditing, selectedExperience}) {
       };
 
     return (
-        <form onSubmit={selectedExperience ? handleEditExperience : handleAddExperience}>
+        <form onSubmit={selectedExperience ? handleEditExperience : handleAddExperience} className='form'>
             <h3>Experience</h3>
             <label>Title:</label>
             <input

@@ -5,6 +5,7 @@ import EducationForm from './EducationForm';
 import CVInfo from './CVInfo';
 import CVPreview from './CVPreview';
 import Header from './Header';
+import Footer from './Footer';
 import '../styles/App.css'
 
 function App() {
@@ -42,23 +43,45 @@ function App() {
   }
 
   return (
-    <div>
-      {showPreview ? (
-      <>
+    <div className='app-container'>
+      <div className='grid-container'>
         <Header />
-        <CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>
-      </>)
+        {showPreview ? (
+          <>
+            <CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>
+          </>
+        )
       : (
-        <>
-          <Header />
+        <div className='main-container'>
           <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
           <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
           <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
           <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled} handlePreviewToggle={handlePreviewToggle} handleExperienceDelete={handleExperienceDelete} handleEducationDelete={handleEducationDelete}/>
-        </>
+        </div>
       )}
+        <Footer />
+      </div>
     </div>
   );
 }
 
 export default App;
+
+// <div>
+    //   {showPreview ? (
+    //   <>
+    //     <Header />
+    //     <CVPreview data={data} handlePreviewToggle={handlePreviewToggle}/>
+    //     <Footer />
+    //   </>)
+    //   : (
+    //     <>
+    //       <Header />
+    //       <GeneralInfoForm data={data} setData={setData} setSubmitted={setSubmitted} isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
+    //       <ExperienceForm data={data} setData={setData} selectedExperience={editing && editing.experience && editing.experience[0]} setEditing={setEditing}/>
+    //       <EducationForm data={data} setData={setData} selectedEducation={editing && editing.education && editing.education[0]} setEditing={setEditing}/>
+    //       <CVInfo data={data} submitted={submitted} setSubmitted={setSubmitted} setEditing={setEditing} setIsDisabled={setIsDisabled} handlePreviewToggle={handlePreviewToggle} handleExperienceDelete={handleExperienceDelete} handleEducationDelete={handleEducationDelete}/>
+    //       <Footer />
+    //     </>
+    //   )}
+    // </div>

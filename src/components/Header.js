@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
+import '../styles/App.css';
 
 function Header() {
     return (
-        <div>CV Builder</div>
+        <div className='header'>CV Builder</div>
     );
 };
 

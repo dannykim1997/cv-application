@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import '../styles/App.css';
 
 function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handlePreviewToggle, handleExperienceDelete, handleEducationDelete}) {
     const handleEditInfo = () => {
@@ -25,7 +26,7 @@ function CVInfo({data, submitted, setSubmitted, setEditing, setIsDisabled, handl
     }
 
     return (
-        <div>
+        <div className='info'>
             <h2>Info</h2>
             <div>
                 <h3>Personal Info</h3>
